@@ -1,4 +1,11 @@
 <?php
+$streamContext = stream_context_create([
+'ssl' => [
+'verify_peer'      => false,
+'verify_peer_name' => false
+]
+]);
+#########################################################
 $last_reboot= shell_exec("uptime");
 $last_reboot_2= exec("uptime -s");
 $show_ram = shell_exec("free -m -t");
@@ -93,6 +100,11 @@ font-size: 16px;
 </div>
   
 <div class="container">
+
+<?php
+$update = file_get_contents("https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt", false, $streamContext);
+?>
+<p>Version : <?php $update; ?></p>
 <pre>
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
