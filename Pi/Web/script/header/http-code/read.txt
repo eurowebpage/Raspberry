@@ -9,7 +9,7 @@ Commande
 ---------
 cd /
 cd /var/www/html/script//header/http-code/
-wget -O https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
+wget  https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
 ------
 Ou - Or
 -----
