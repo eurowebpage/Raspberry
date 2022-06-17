@@ -113,8 +113,8 @@ font-size: 16px;
 <div><a id="cRetour" class="cInvisible" href="#haut" title="back to the top"></a></div>
 <div id="haut"></div>  
 <div class="jumbotron text-center">
-  <h1>Raspberry PI info V.0.0.5</h1>
-	<p>Salut niko</p>
+  <h1>Raspberry PI info V.0.0.6</h1>
+	
 </div>
   
 <div class="container">
