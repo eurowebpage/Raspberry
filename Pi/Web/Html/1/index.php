@@ -127,6 +127,7 @@ echo '<div class="alert alert-success">Version '.$update.' OK </div>';
 echo '<div class="alert alert-danger">Version '.$update.' pas à jours </div>';	
 $update_ok = shell_exec("wget -O /var/www/html/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php");	
 $update_ok2 = shell_exec("wget -O /var/www/html/update.txt https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
+echo shell_exec("sync; echo 1 > /proc/sys/vm/drop_caches");	
 
 echo $update_ok;
 echo $update_ok2;
