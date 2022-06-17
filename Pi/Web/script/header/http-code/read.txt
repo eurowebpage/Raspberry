@@ -8,9 +8,23 @@ Url raw : https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/sc
 Commande
 ---------
 cd /
-cd /var/www/html/script/
+cd /var/www/html/script//header/http-code/
 wget -O https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
 ------
 Ou - Or
 -----
 wget -O /var/www/html/script/header/http-code/1.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
+
+-------------------------------------
+Create dir if doesn't exist
+---------------------------
+cd /var/www/html
+mkdir script
+cd script
+mkdir header
+cd header
+mkdir http-code
+wget -O /var/www/html/script/header/http-code/1.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
+
+
+
