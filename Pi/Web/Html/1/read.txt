@@ -8,4 +8,4 @@ wget -O https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html
 ------
 Ou - Or
 -----
-wget -O /var/www/html/file_name.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php
+wget -O /var/www/html/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php
