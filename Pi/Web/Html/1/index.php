@@ -104,7 +104,7 @@ font-size: 16px;
 <?php
 $update = file_get_contents("https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt", false, $streamContext);
 ?>
-<p>Version : <?php $update; ?></p>
+<p>Version : <?php echo $update; ?></p>
 <pre>
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
