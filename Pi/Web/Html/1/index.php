@@ -125,8 +125,11 @@ if ($update_local == $update){
 echo '<div class="alert alert-success">Version '.$update.' OK </div>';	
 }else{
 echo '<div class="alert alert-danger">Version '.$update.' pas à jours </div>';	
-$update_ok = shell_exec("wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
+$update_ok = shell_exec("wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php");	
+$update_ok2 = shell_exec("wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
+
 echo $update_ok;
+echo $update_ok2;
 }
 ?>
 
