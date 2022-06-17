@@ -3,3 +3,14 @@ si code erreur 500
 sudo apt-get install php-curl
 sudo service apache2 restart
 
+-------------------------------------------
+Url raw : https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
+Commande
+---------
+cd /
+cd /var/www/html/script/
+wget -O https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
+------
+Ou - Or
+-----
+wget -O /var/www/html/script/header/http-code/1.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/script/header/http-code/1.php
