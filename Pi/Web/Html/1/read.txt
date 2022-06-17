@@ -5,5 +5,5 @@ Commande
 cd /
 cd /var/www/html
 --
-wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt
+wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.php
 ------
