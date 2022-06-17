@@ -113,7 +113,7 @@ font-size: 16px;
 <div><a id="cRetour" class="cInvisible" href="#haut" title="back to the top"></a></div>
 <div id="haut"></div>  
 <div class="jumbotron text-center">
-  <h1>Raspberry PI info V.0.0.3</h1>
+  <h1>Raspberry PI info V.0.0.4</h1>
 </div>
   
 <div class="container">
@@ -125,8 +125,8 @@ if ($update_local == $update){
 echo '<div class="alert alert-success">Version '.$update.' OK </div>';	
 }else{
 echo '<div class="alert alert-danger">Version '.$update.' pas à jours </div>';	
-$update_ok = shell_exec("wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php");	
-$update_ok2 = shell_exec("wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
+$update_ok = shell_exec("wget -O /var/www/html/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php");	
+$update_ok2 = shell_exec("wget -O /var/www/html/update.txt https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
 
 echo $update_ok;
 echo $update_ok2;
