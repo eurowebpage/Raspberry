@@ -1,1 +1,11 @@
-
+Url raw : https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php
+------
+Commande
+---------
+cd /
+cd /var/www/html
+wget -O https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php
+------
+Ou - Or
+-----
+wget -O /var/www/html/file_name.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php
