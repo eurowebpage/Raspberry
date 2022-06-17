@@ -1,10 +1,27 @@
 <?php
+header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Connection: close");
+#########################################################
 $streamContext = stream_context_create([
 'ssl' => [
 'verify_peer'      => false,
 'verify_peer_name' => false
 ]
 ]);
+#########################################################
+$filename_update = 'update.txt';
+if (is_file($filename_update)) {
+$message = "The file $filename_update exists";
+} else {
+$message = "The file $filename_update does not exist";
+$file_update = shell_exec("wget https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");
+echo $file_update;
+	
+}
 #########################################################
 $last_reboot= shell_exec("uptime");
 $last_reboot_2= exec("uptime -s");
@@ -96,15 +113,24 @@ font-size: 16px;
 <div><a id="cRetour" class="cInvisible" href="#haut" title="back to the top"></a></div>
 <div id="haut"></div>  
 <div class="jumbotron text-center">
-  <h1>Raspberry PI info</h1>
+  <h1>Raspberry PI info V.0.0.3</h1>
 </div>
   
 <div class="container">
 
 <?php
 $update = file_get_contents("https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt", false, $streamContext);
+$update_local = file_get_contents("update.txt");
+if ($update_local == $update){
+echo '<div class="alert alert-success">Version '.$update.' OK </div>';	
+}else{
+echo '<div class="alert alert-danger">Version '.$update.' pas à jours </div>';	
+echo shell_exec("wget -O https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
+}
 ?>
-<p>Version : <?php echo $update; ?></p>
+
+<p>Version dist : <?php echo $update; ?> - version local : <?php echo $update_local; ?></p>
+
 <pre>
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
