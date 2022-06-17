@@ -125,12 +125,22 @@ if ($update_local == $update){
 echo '<div class="alert alert-success">Version '.$update.' OK </div>';	
 }else{
 echo '<div class="alert alert-danger">Version '.$update.' pas à jours </div>';	
-$update_ok = shell_exec("wget -O /var/www/html/index.php https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/index.php");	
-$update_ok2 = shell_exec("wget -O /var/www/html/update.txt https://raw.githubusercontent.com/eurowebpage/Raspberry/main/Pi/Web/Html/1/update.txt");	
-echo shell_exec("sync; echo 1 > /proc/sys/vm/drop_caches");	
 
-echo $update_ok;
-echo $update_ok2;
+$post = [
+    'update' => 'update',
+  
+];
+define('URL', filter_var(rtrim('http'.(((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) ? 's' : '').'://'.$_SERVER['SERVER_NAME'].str_replace('\\', '/', dirname($_SERVER['PHP_SELF'])), '/').'/', FILTER_SANITIZE_URL));
+
+$ch = curl_init(URL."update.php");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+// execute!
+$response = curl_exec($ch);
+
+// close the connection, release resources used
+curl_close($ch);
 }
 ?>
 
