@@ -1,4 +1,6 @@
 <?php
+$version_html ="0.0.8";
+#########################################################
 header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -113,7 +115,7 @@ font-size: 16px;
 <div><a id="cRetour" class="cInvisible" href="#haut" title="back to the top"></a></div>
 <div id="haut"></div>  
 <div class="jumbotron text-center">
-  <h1>Raspberry PI info V.0.0.7</h1>
+  <h1>Raspberry PI info V.<?php echo $version_html; ?></h1>
 	
 </div>
   
@@ -191,6 +193,10 @@ echo $_SERVER["DOCUMENT_ROOT"];
 <p>df -h :</p> <?php echo "<pre>$df_h</pre>";?><hr>
 <p>Hostname :</p> <?php echo "<pre>$hostname</pre>";?><hr>
 <p>Hostname -I :</p> <?php echo "<pre>$hostname_I</pre>";?><hr>
+<?php
+$mac_address = shell_exec('cat /sys/class/net/eth0/address');
+?>	
+<p>Mac address :</p> <?php echo "<pre>$mac_address</pre>";?><hr>
 
 
 
