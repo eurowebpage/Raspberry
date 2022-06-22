@@ -1,5 +1,5 @@
 <?php
-$version_html ="0.0.8";
+$version_html ="0.0.9";
 #########################################################
 header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -197,7 +197,10 @@ echo $_SERVER["DOCUMENT_ROOT"];
 $mac_address = shell_exec('cat /sys/class/net/eth0/address');
 ?>	
 <p>Mac address :</p> <?php echo "<pre>$mac_address</pre>";?><hr>
-
+<?php
+$all_connect = shell_exec('arp');
+?>	
+<p>All connect :</p> <?php echo "<pre>$all_connect</pre>";?><hr>
 
 
 </div>
