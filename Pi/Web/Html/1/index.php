@@ -1,5 +1,5 @@
 <?php
-$version_html ="0.0.11";
+$version_html ="0.0.12";
 #########################################################
 header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -205,18 +205,13 @@ $all_connect = shell_exec('arp');
 $all_connect_n = shell_exec('arp -n');
 ?>	
 <p>All connect N:</p> <?php echo "<pre>$all_connect_n</pre>";?><hr>
+
 <?php
-$MemTotal = shell_exec("awk '/MemTotal/ {printf( \"%d\n\", $2 / 1024 )}' /proc/meminfo");
+$MemTotal2 = '"%d\n"'; 
+$MemTotal = shell_exec("awk '/MemTotal/ {printf( ".$MemTotal2.", $2 / 1024 )}' /proc/meminfo ");
 ?>	
 <p>MemTotal :</p> <?php echo "<pre>$MemTotal Mo</pre>";?><hr>
-<?php
-$MemFree = shell_exec("awk '/MemFree/ {printf( \"%d\n\", $2 / 1024 )}' /proc/meminfo");
-?>	
-<p>MemFree :</p> <?php echo "<pre>$MemFree Mo</pre>";?><hr>
-<?php
-$MemAvailable = shell_exec("awk '/MemAvailable/ {printf( \"%d\n\", $2 / 1024 )}' /proc/meminfo");
-?>	
-<p>MemAvailable :</p> <?php echo "<pre>$MemAvailable Mo</pre>";?><hr>
+
 	
 </div>
 <footer class="mt-5">
