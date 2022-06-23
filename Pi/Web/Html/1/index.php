@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@eurowebpage 
-eurowebpage
-/
-Raspberry
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Raspberry/Pi/Web/Html/1/index.php /
-@eurowebpage
-eurowebpage Update index.php
-Latest commit 6fcaeea 44 seconds ago
- History
- 1 contributor
-237 lines (214 sloc)  7.39 KB
-
 <?php
 $version_html ="0.0.11";
 #########################################################
@@ -264,16 +235,3 @@ document.getElementById("cRetour").className = (window.pageYOffset > 100) ? "cVi
 </script>
 </body>
 </html>
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
