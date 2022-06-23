@@ -1,5 +1,5 @@
 <?php
-$version_html ="0.0.12";
+$version_html ="0.0.13";
 #########################################################
 header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -211,7 +211,47 @@ $MemTotal2 = '"%d\n"';
 $MemTotal = shell_exec("awk '/MemTotal/ {printf( ".$MemTotal2.", $2 / 1024 )}' /proc/meminfo ");
 ?>	
 <p>MemTotal :</p> <?php echo "<pre>$MemTotal Mo</pre>";?><hr>
+<?php
+######################################################
+function get_ip_address() {
 
+    // Check for shared Internet/ISP IP
+    if (!empty($_SERVER['HTTP_CLIENT_IP']) && validate_ip($_SERVER['HTTP_CLIENT_IP'])) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    }
+
+    // Check for IP addresses passing through proxies
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+
+        // Check if multiple IP addresses exist in var
+        if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ',') !== false) {
+            $iplist = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            foreach ($iplist as $ip) {
+                if (validate_ip($ip))
+                    return $ip;
+            }
+        }
+        else {
+            if (validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']))
+                return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+    }
+    if (!empty($_SERVER['HTTP_X_FORWARDED']) && validate_ip($_SERVER['HTTP_X_FORWARDED']))
+        return $_SERVER['HTTP_X_FORWARDED'];
+    if (!empty($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']) && validate_ip($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
+        return $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+    if (!empty($_SERVER['HTTP_FORWARDED_FOR']) && validate_ip($_SERVER['HTTP_FORWARDED_FOR']))
+        return $_SERVER['HTTP_FORWARDED_FOR'];
+    if (!empty($_SERVER['HTTP_FORWARDED']) && validate_ip($_SERVER['HTTP_FORWARDED']))
+        return $_SERVER['HTTP_FORWARDED'];
+
+    // Return unreliable IP address since all else failed
+    return $_SERVER['REMOTE_ADDR'];
+}
+$ip_local = get_ip_address();
+?>
+<p>Ip local :</p> <?php echo "<pre>$ip_local</pre>";?><hr>
+	
 	
 </div>
 <footer class="mt-5">
