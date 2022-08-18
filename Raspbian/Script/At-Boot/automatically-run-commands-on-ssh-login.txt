@@ -1,0 +1,11 @@
+~/.bashrc or /etc/bash.bashrc
+--
+nano /etc/bash.bashrc
+--
+
+if [[ -n $SSH_CONNECTION ]] ; then
+    echo "I am logged in remotely"
+	php /var/www/html/boot/send1.php
+fi
+
+-- save and exit ---
