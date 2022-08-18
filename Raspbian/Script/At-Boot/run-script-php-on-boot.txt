@@ -1,0 +1,14 @@
+sudo chmod a+x /var/www/html/boot/send1.php
+
+chmod 755  /var/www/html/boot/
+
+chmod -R 755 /var/www/html/boot/
+
+--
+nano /etc/rc.local
+-- add -- before exit 0
+php /var/www/html/boot/send1.php
+-- save and exit
+--
+reboot
+---
