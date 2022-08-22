@@ -1,24 +1,23 @@
 Install pishrink.sh on your Raspberry Pi and copy it to the /usr/local/bin folder by typing:
-
+-- 1 --
 wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
 sudo chmod +x pishrink.sh
 sudo mv pishrink.sh /usr/local/bin
-
-
+--
 Check the mount point path of your USB drive by entering 
-
+-- 2 --
 lsblk
-
+-- 3 -- count egale taille +- a compresser example ci-dessous 1.8 G --
 sudo dd if=/dev/mmcblk0 of=/var/www/html/imager/myimg.img bs=1M count=1800
-
-
+-- 4 --
 cd /var/www/html/imager
-
+ls -all
+-- 5 --
 sudo pishrink.sh -z /var/www/html/imager/myimg.img
-
+-- ou --
 zip -r testfile.zip  /var/www/html/imager/myimg.img
-
+-- 6 -- AUTRE --
+-- Envoi par email --
 echo "Image raspi" | mail -s "Subject Here" info@eurowebpage.com -A testfile.zip
-
-
+-- Déplacer le fichier --
 sudo mv testfile.zip /var/www/html/imager
